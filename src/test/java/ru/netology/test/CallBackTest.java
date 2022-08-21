@@ -7,15 +7,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CallBackTest {
 
@@ -52,32 +49,32 @@ class CallBackTest {
         driver = null;
     }
 
-    @Test
-    void FirstOptionTest() {
-
-        driver.get("http://localhost:9999/");
-        List<WebElement> inputs = driver.findElements(By.tagName("input"));
-        inputs.get(0).sendKeys("Иванов-Петров Михаил");
-        inputs.get(1).sendKeys("+79991234567");
-        driver.findElement(By.className("checkbox__box")).click();
-        driver.findElement(By.className("button__text")).click();
-        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.className("Success_successBlock__2L3Cw")).getText().trim();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void SecondOptionTest() {
-
-        driver.get("http://localhost:9999/");
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иванов-Петров Михаил");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79991234567");
-        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
-        driver.findElement(By.className("button__text")).click();
-        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
-        assertEquals(expected, actual);
-    }
+//    @Test
+//    void FirstOptionTest() {
+//
+//        driver.get("http://localhost:9999/");
+//        List<WebElement> inputs = driver.findElements(By.tagName("input"));
+//        inputs.get(0).sendKeys("Иванов-Петров Михаил");
+//        inputs.get(1).sendKeys("+79991234567");
+//        driver.findElement(By.className("checkbox__box")).click();
+//        driver.findElement(By.className("button__text")).click();
+//        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
+//        String actual = driver.findElement(By.className("Success_successBlock__2L3Cw")).getText().trim();
+//        assertEquals(expected, actual);
+//    }
+//
+//    @Test
+//    void SecondOptionTest() {
+//
+//        driver.get("http://localhost:9999/");
+//        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иванов-Петров Михаил");
+//        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79991234567");
+//        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
+//        driver.findElement(By.className("button__text")).click();
+//        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
+//        String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
+//        assertEquals(expected, actual);
+//    }
 
     @Test
     void selenideOptionTest() {
